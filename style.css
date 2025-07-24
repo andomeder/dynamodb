@@ -1,15 +1,49 @@
-/* A more subtle link color */
+/* ./style.css */
+
+/* --- Light Theme (Default) --- */
+:root {
+  --slidev-background-color: #F8F9FA; /* Off-white background */
+  --slidev-text-color: #212529; /* Very dark grey text */
+  --slidev-title-color: #005276; /* A strong, dark blue for titles */
+  --slidev-accent-color: #FF9900; /* AWS Orange for accents */
+  --slidev-code-background: #E9ECEF; /* Light grey for code blocks */
+  --slidev-code-text-color: #343A40;
+}
+
+/* --- Dark Theme --- */
+.dark {
+  --slidev-background-color: #212529; /* Dark background */
+  --slidev-text-color: #E9ECEF; /* Light grey text */
+  --slidev-title-color: #74C0FC; /* A lighter, vibrant blue for titles */
+  --slidev-accent-color: #FF9900; /* AWS Orange still works well */
+  --slidev-code-background: #343A40; /* Darker grey for code blocks */
+  --slidev-code-text-color: #F8F9FA;
+}
+
+/* --- Global Styles --- */
+.slidev-layout {
+  color: var(--slidev-text-color);
+}
+.slidev-layout h1, .slidev-layout h2, .slidev-layout h3 {
+  color: var(--slidev-title-color);
+  font-weight: 600;
+}
 .slidev-layout a {
-  color: #FF9900; /* AWS Orange */
-  border-bottom: 1px solid #FF990060;
+  color: var(--slidev-accent-color);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.3s;
 }
-
 .slidev-layout a:hover {
-  border-bottom-color: #FF9900;
+  border-bottom-color: var(--slidev-accent-color);
 }
 
-/* Style for the presenter's name in the notes */
-.presenter-name {
-  font-weight: bold;
-  color: #FF9900;
+/* --- Code Block Styles --- */
+.slidev-code-wrapper {
+  background-color: var(--slidev-code-background);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+code {
+  color: var(--slidev-code-text-color);
 }
