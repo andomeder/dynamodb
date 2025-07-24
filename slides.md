@@ -18,15 +18,13 @@ This is the Title Slide.
 The layout 'cover' is a special layout that's often used for titles.
 The background image is the Daystar logo we placed in the public folder.
 -->
-<div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-  <img src="/daystar-logo.png" alt="Daystar University Logo" class="w-80 opacity-80" />
+<div class="h-full w-full flex flex-col items-center justify-center text-center">
+  <img src="/daystar-logo.png" alt="Daystar University Logo" class="w-40 mb-8" />
+  <h1 class="text-5xl font-bold">Amazon DynamoDB: A Comprehensive Analysis</h1>
+  <p class="mt-6 text-2xl">ACS362B: Advanced Database Management Systems</p>
+  <p class="mt-2 text-xl opacity-80">Mr. Watson Kanuku</p>
 </div>
 
-<div class="absolute bottom-12 text-center w-full">
-  <h1 class="text-4xl font-bold">Amazon DynamoDB: A Comprehensive Analysis</h1>
-  <p class="mt-4 text-lg">ACS362B: Advanced Database Management Systems</p>
-  <p class="text-sm opacity-75">Mr. Watson Kanuku</p>
-</div>
 
 <!-- 
 PRESENTER NOTES:
@@ -40,17 +38,50 @@ layout: default
 
 # Presentation Outline
 
-<v-clicks>
-
-1.  **Introduction**: What is DynamoDB?
-2.  **Outstanding Characteristics**: The Core Features
-3.  **Areas of Application**: Powering Industry Leaders
-4.  **Access Mechanisms**: Backend & Frontend
-5.  **Distribution & Optimization**: The Engine Under the Hood
-6.  **Security & Integration**: A Robust Ecosystem
-7.  **Conclusion**: Key Takeaways
-
-</v-clicks>
+<div class="grid grid-cols-2 gap-x-16 gap-y-8 mt-8">
+  <div class="flex items-center" v-click>
+    <div class="i-carbon-rocket text-5xl text-[#005276] mr-4"></div>
+    <div>
+      <h3 class="text-xl font-bold">Introduction</h3>
+      <p class="opacity-70">What is DynamoDB?</p>
+    </div>
+  </div>
+  <div class="flex items-center" v-click>
+    <div class="i-carbon-star-review text-5xl text-[#005276] mr-4"></div>
+    <div>
+      <h3 class="text-xl font-bold">Outstanding Characteristics</h3>
+      <p class="opacity-70">The Core Features</p>
+    </div>
+  </div>
+  <div class="flex items-center" v-click>
+    <div class="i-carbon-building-insights-1 text-5xl text-[#005276] mr-4"></div>
+    <div>
+      <h3 class="text-xl font-bold">Areas of Application</h3>
+      <p class="opacity-70">Powering Industry Leaders</p>
+    </div>
+  </div>
+  <div class="flex items-center" v-click>
+    <div class="i-carbon-terminal text-5xl text-[#005276] mr-4"></div>
+    <div>
+      <h3 class="text-xl font-bold">Access Mechanisms</h3>
+      <p class="opacity-70">Backend & Frontend</p>
+    </div>
+  </div>
+  <div class="flex items-center" v-click>
+    <div class="i-carbon-network-4 text-5xl text-[#005276] mr-4"></div>
+    <div>
+      <h3 class="text-xl font-bold">Distribution & Optimization</h3>
+      <p class="opacity-70">The Engine Under the Hood</p>
+    </div>
+  </div>
+  <div class="flex items-center" v-click>
+    <div class="i-carbon-security text-5xl text-[#005276] mr-4"></div>
+    <div>
+      <h3 class="text-xl font-bold">Security & Integration</h3>
+      <p class="opacity-70">A Robust Ecosystem</p>
+    </div>
+  </div>
+</div>
 
 <!-- 
 PRESENTER NOTES:
@@ -74,7 +105,7 @@ A fully managed, serverless, NoSQL database designed for **internet-scale applic
     <p class="text-sm opacity-75">Single-digit millisecond latency, regardless of size.</p>
   </div>
   <div v-click>
-    <div class="i-carbon-cics-sit-override text-5xl text-blue-500 mx-auto"></div>
+    <div class="i-carbon-cloud-services text-5xl text-blue-500 mx-auto"></div>
     <h3 class="font-bold mt-2">Fully Managed</h3>
     <p class="text-sm opacity-75">No servers to provision, patch, or manage. It's serverless.</p>
   </div>
@@ -103,29 +134,26 @@ layout: default
 <div>
 
 ### Core Features
-<v-clicks>
-
-- **Serverless Architecture**: Focus on code, not on servers.
-- **Flexible Data Model**: Key-Value & Document stores.
-- **Global Tables**: Active-active, multi-region replication for worldwide apps.
-- **ACID Transactions**: Ensures data integrity across multiple items and tables.
-
-</v-clicks>
+<div class="space-y-4 mt-4">
+  <div class="flex items-start" v-click><div class="i-carbon-ibm-cloudant text-3xl mr-3 text-blue-500"></div><div><strong>Serverless Architecture</strong>: Focus on code, not on servers.</div></div>
+  <div class="flex items-start" v-click><div class="i-carbon-document-multiple-01 text-3xl mr-3 text-green-500"></div><div><strong>Flexible Data Model</strong>: Key-Value & Document stores.</div></div>
+  <div class="flex items-start" v-click><div class="i-carbon-globe text-3xl mr-3 text-teal-500"></div><div><strong>Global Tables</strong>: Active-active, multi-region replication.</div></div>
+  <div class="flex items-start" v-click><div class="i-carbon-stamp text-3xl mr-3 text-red-500"></div><div><strong>ACID Transactions</strong>: Ensures data integrity across multiple items and tables.</div></div>
+</div>
 
 </div>
 <div>
 
 ### Advanced Capabilities
-<v-clicks>
-
-- **DynamoDB Accelerator (DAX)**: An in-memory cache for microsecond read latency.
-- **DynamoDB Streams**: React to data changes in real-time.
-- **Time to Live (TTL)**: Automatically expire and delete items to manage costs.
-
-</v-clicks>
+<div class="space-y-4 mt-4">
+  <div class="flex items-start" v-click><div class="i-carbon-lightning text-3xl mr-3 text-yellow-500"></div><div><strong>DynamoDB Accelerator (DAX)</strong>: In-memory cache for microsecond reads.</div></div>
+  <div class="flex items-start" v-click><div class="i-carbon-wave-direction text-3xl mr-3 text-purple-500"></div><div><strong>DynamoDB Streams</strong>: React to data changes in real-time.</div></div>
+  <div class="flex items-start" v-click><div class="i-carbon-time text-3xl mr-3 text-gray-500"></div><div><strong>Time to Live (TTL)</strong>: Automatically expire and delete items.</div></div>
+</div>
 
 </div>
 </div>
+
 
 <!--
 PRESENTER NOTES:
@@ -143,26 +171,26 @@ class: 'text-center'
 
 DynamoDB is trusted by thousands of companies for their most demanding applications.
 
-<div class="grid grid-cols-3 gap-8 mt-10">
+<div class="grid grid-cols-3 gap-y-8 mt-10">
   <div v-click>
     <h3 class="font-bold">Media & Entertainment</h3>
-    <div class="flex justify-center items-center space-x-4 mt-2">
-      <div class="i-simple-icons-netflix text-4xl"></div>
-      <div class="i-simple-icons-disneyplus text-4xl"></div>
+    <div class="flex justify-center items-center space-x-4 mt-2 text-5xl">
+      <div class="i-simple-icons-netflix text-red-600"></div>
+      <div class="i-simple-icons-disneyplus text-blue-900"></div>
     </div>
   </div>
   <div v-click>
     <h3 class="font-bold">E-commerce & SaaS</h3>
-    <div class="flex justify-center items-center space-x-4 mt-2">
-      <div class="i-simple-icons-amazon text-4xl"></div>
-      <div class="i-simple-icons-dropbox text-4xl"></div>
+    <div class="flex justify-center items-center space-x-4 mt-2 text-5xl">
+      <div class="i-simple-icons-amazon text-[#FF9900]"></div>
+      <div class="i-simple-icons-dropbox text-blue-600"></div>
     </div>
   </div>
   <div v-click>
     <h3 class="font-bold">FinTech & Education</h3>
-    <div class="flex justify-center items-center space-x-4 mt-2">
-      <div class="i-simple-icons-capitalone text-4xl"></div>
-      <div class="i-simple-icons-duolingo text-4xl"></div>
+    <div class="flex justify-center items-center space-x-4 mt-2 text-5xl">
+      <div class="i-simple-icons-capitalone text-red-700"></div>
+      <div class="i-simple-icons-duolingo text-green-500"></div>
     </div>
   </div>
 </div>
@@ -181,9 +209,10 @@ layout: default
 
 # Backend Access: SDKs & CLI
 
-The most common way to interact with DynamoDB is from a secure backend using AWS SDKs.
+Interact with DynamoDB from a secure backend using AWS SDKs.
 
-```python {all|3-4|7-14|17-21|24-29|32-35}
+<!-- By adding maxHeight, the code block becomes scrollable if it exceeds the height -->
+```python {all|3-4|7-14|17-21|24-29|32-35} {maxHeight: '380px'}
 import boto3
 
 # 1. Initialize the DynamoDB resource.
@@ -236,28 +265,47 @@ The AWS Command Line Interface, or CLI, is also commonly used for scripting and 
 layout: default
 ---
 
+
 # Frontend Access: The Secure Architecture
 
 Direct frontend access is insecure. The best practice is to use an API layer.
 
 <div class="w-full h-90 flex items-center justify-center">
 
+<!-- This Mermaid diagram now has a theme that adapts to light/dark mode -->
 ```mermaid
+%%{
+  init: {
+    "theme": "base",
+    "themeVariables": {
+      "primaryColor": "#F0F4F8",
+      "primaryTextColor": "#1C2A3A",
+      "primaryBorderColor": "#A6B5C5",
+      "lineColor": "#6C757D",
+      "textColor": "#212529",
+      "mainBkg": "#D6EAF8",
+      "nodeBorder": "#3498DB",
+      "clusterBkg": "#F8F9FA",
+      "clusterBorderColor": "#CED4DA"
+    }
+  }
+}%%
 graph TD
-    A[<div class="flex items-center"><div class="i-carbon-laptop text-3xl mr-2"></div>User's Browser/Mobile App</div>] -->|HTTPS Request| B(Amazon API Gateway);
+    A["<div class='flex items-center'><div class='i-carbon-laptop text-3xl mr-2'></div>User's Browser/Mobile App</div>"] -->|HTTPS Request| B(Amazon API Gateway);
     B -->|Triggers| C(AWS Lambda Function);
-    C -->|Uses AWS SDK| D{<div class="flex items-center"><div class="i-simple-icons-amazonaws text-3xl mr-2"></div>Amazon DynamoDB</div>};
+    C -->|Uses AWS SDK| D["<div class='flex items-center'><div class='i-simple-icons-amazonaws text-3xl mr-2'></div>Amazon DynamoDB</div>"];
     subgraph "Secure AWS Backend"
         B; C; D;
     end
-    E[<div class="flex items-center"><div class="i-carbon-user-avatar-filled-alt text-3xl mr-2"></div>Amazon Cognito</div>] -->|Authenticates & Authorizes| B;
+    E["<div class='flex items-center'><div class='i-carbon-user-avatar-filled-alt text-3xl mr-2'></div>Amazon Cognito</div>"] -->|Authenticates & Authorizes| B;
 
-    style A fill:#D6EAF8,stroke:#3498DB
-    style E fill:#FEF9E7,stroke:#F1C40F
-    style D fill:#D5F5E3,stroke:#2ECC71
+    style A fill:#D6EAF8,stroke:#3498DB,color:#212529
+    style E fill:#FEF9E7,stroke:#F1C40F,color:#212529
+    style D fill:#D5F5E3,stroke:#2ECC71,color:#212529
 ```
 
 </div>
+
 
 <!--
 PRESENTER NOTES:
@@ -274,37 +322,36 @@ To handle user authentication, you would use a service like Amazon Cognito, whic
 layout: default
 ---
 
+
 # Distribution & Optimization
 
-DynamoDB's performance comes from its distributed architecture and data modeling best practices.
+<!-- DynamoDB's performance comes from its distributed architecture and data modeling best practices. -->
 
 <div class="grid grid-cols-2 gap-8 mt-6">
 <div>
 
 ### Distribution
+<!-- This diagram is now themed for light mode -->
 ```mermaid
+%%{ init: { "theme": "base", "themeVariables": { "primaryTextColor": "#111" } } }%%
 graph TD
-    subgraph "Data Items"
-        A[Item 1<br><span class='opacity-50'>PK: user_A</span>]
-        B[Item 2<br><span class='opacity-50'>PK: user_B</span>]
-        C[Item 3<br><span class='opacity-50'>PK: user_C</span>]
+    subgraph Data Items
+        A["Item 1<br><span class='opacity-50'>PK: user_A</span>"]
+        B["Item 2<br><span class='opacity-50'>PK: user_B</span>"]
+        C["Item 3<br><span class='opacity-50'>PK: user_C</span>"]
     end
     
     Hash["Hash(Partition Key)"]
     
-    A --> Hash
-    B --> Hash
-    C --> Hash
+    A --> Hash; B --> Hash; C --> Hash;
     
-    subgraph "Partitions (Replicated Across AZs)"
+    subgraph "Partitions (Replicated)"
         P1[Partition 1]
         P2[Partition 2]
         P3[Partition 3]
     end
     
-    Hash -- "user_A" --> P1
-    Hash -- "user_B" --> P3
-    Hash -- "user_C" --> P2
+    Hash -- "user_A" --> P1; Hash -- "user_B" --> P3; Hash -- "user_C" --> P2;
 ```
 
 </div>
@@ -313,21 +360,20 @@ graph TD
 ### Optimization Best Practices
 <v-clicks>
 
-- **High-Cardinality Partition Key**: Choose a key with many unique values (like `user_id`, `order_id`) to distribute data evenly. This prevents "hot partitions".
-- **Use `Query` over `Scan`**: A `Query` operation is highly efficient as it targets specific items by key. A `Scan` reads the entire table and should be avoided in production.
+- **High-Cardinality Partition Key**: Choose a key with many unique values (like `user_id`, `order_id`) to prevent "hot partitions".
+- **Use `Query` over `Scan`**: A `Query` operation is fast and efficient. A `Scan` reads the entire table and should be avoided in production.
 - **Leverage Secondary Indexes**: Create Global Secondary Indexes (GSIs) to enable efficient queries on non-key attributes.
-- **Manage Capacity**: Choose between **On-Demand** for unpredictable workloads and **Provisioned** for predictable traffic to optimize costs.
+- **Manage Capacity**: Use **On-Demand** for unpredictable workloads or **Provisioned** for predictable traffic to optimize costs.
 
 </v-clicks>
-
 </div>
 </div>
 
 <!--
 PRESENTER NOTES:
 (Presenter 5) -> So, how does DynamoDB achieve this scale and performance? It boils down to two things: distribution and optimization.
-For distribution, DynamoDB uses partitioning. When you write an item, it takes the **partition key** and passes it through a hash function. The output of this function determines which physical partition the data is stored on. This is why choosing a good partition key is so critical.
-This leads us to optimization. The most important best practice is to design your data model around your access patterns. Choose a partition key with high cardinality—many unique values—to ensure your data is spread evenly across partitions. Always use the `Query` operation, which is very fast, and avoid using `Scan` which is slow and expensive. And finally, manage your costs by choosing the right capacity mode for your application's traffic pattern.
+For distribution, DynamoDB uses partitioning. When you write an item, it takes the partition key and passes it through a hash function. This determines which physical partition the data is stored on.
+This leads us to optimization. The most important best practice is to choose a partition key with many unique values to ensure your data is spread evenly. Always use the fast `Query` operation, and avoid the slow and expensive `Scan`. And finally, manage your costs by choosing the right capacity mode for your application's traffic pattern.
 -->
 
 ---
@@ -344,10 +390,10 @@ DynamoDB is secure by default and deeply integrated into the AWS ecosystem.
 ### Multi-Layered Security
 <v-clicks>
 
-- **IAM (Identity & Access Management)**: Granular permissions for users and roles. The principle of least privilege is key.
+- **IAM (Identity & Access Management)**: Granular permissions for users and roles.
 - **Encryption at Rest & In-Transit**: Data is automatically encrypted by default.
-- **VPC Endpoints**: Keep traffic between your application and DynamoDB within your private network.
-- **CloudTrail Auditing**: Log all API calls for security and compliance monitoring.
+- **VPC Endpoints**: Keep traffic within your private AWS network.
+- **CloudTrail Auditing**: Log all API calls for security and compliance.
 
 </v-clicks>
 
@@ -355,17 +401,24 @@ DynamoDB is secure by default and deeply integrated into the AWS ecosystem.
 <div>
 
 ### Seamless Integration
+<!-- Themed diagram -->
 ```mermaid
+%%{ init: { "theme": "base", "themeVariables": { "primaryTextColor": "#111" } } }%%
 graph TD
-    D{DynamoDB} ---|Zero-ETL| R(Amazon Redshift<br><span class='opacity-60 text-sm'>Analytics</span>)
-    D ---|Zero-ETL| S(Amazon OpenSearch<br><span class='opacity-60 text-sm'>Full-Text Search</span>)
-    D ---|Streams| L(AWS Lambda<br><span class='opacity-60 text-sm'>Event-Driven Logic</span>)
-    M(Other DBs<br><span class='opacity-60 text-sm'>e.g., MongoDB</span>) ---|AWS DMS| D
+    D["<div class='p-1'>DynamoDB</div>"]
+    R("Amazon Redshift<br><span class='opacity-60 text-sm'>Analytics</span>")
+    S("Amazon OpenSearch<br><span class='opacity-60 text-sm'>Full-Text Search</span>")
+    L("AWS Lambda<br><span class='opacity-60 text-sm'>Event-Driven Logic</span>")
+    M("Other DBs<br><span class='opacity-60 text-sm'>e.g., MongoDB</span>")
+
+    D ---|Zero-ETL| R; D ---|Zero-ETL| S;
+    D -- "Streams" --> L; M -- "AWS DMS" --> D;
     
-    style D fill:#F5B041
+    style D fill:#FF9900,color:#fff,stroke:#BF7300
 ```
 </div>
 </div>
+
 
 <!--
 PRESENTER NOTES:
@@ -382,18 +435,21 @@ class: 'text-center'
 
 # Conclusion & Key Takeaways
 
-<v-clicks>
-
-1.  **Scalable & Serverless by Default**
-    <p class="text-lg opacity-75">DynamoDB is a premier choice for applications requiring massive scale with minimal operational overhead.</p>
-
-2.  **Data Modeling is Everything**
-    <p class="text-lg opacity-75">Performance and cost are directly tied to how you design your primary keys and access patterns. Think about your queries first.</p>
-
-3.  **A Pillar of the AWS Ecosystem**
+<div class="grid grid-cols-1 gap-6 mt-8">
+  <div v-click>
+    <h3 class="font-bold text-2xl">1. Scalable & Serverless by Default</h3>
+    <p class="text-lg opacity-75">A premier choice for applications requiring massive scale with minimal operational overhead.</p>
+  </div>
+  <div v-click>
+    <h3 class="font-bold text-2xl">2. Data Modeling is Everything</h3>
+    <p class="text-lg opacity-75">Performance and cost are directly tied to how you design your primary keys and access patterns. Think about queries first.</p>
+  </div>
+  <div v-click>
+    <h3 class="font-bold text-2xl">3. A Pillar of the AWS Ecosystem</h3>
     <p class="text-lg opacity-75">Its true strength is amplified by its deep integration for security, analytics, and event-driven architectures.</p>
+  </div>
+</div>
 
-</v-clicks>
 
 <!--
 PRESENTER NOTES:
@@ -421,6 +477,7 @@ Mwambali Irenge Don-Beni,
 Brave Joseph Irumva,
 Kengere William N. Obino
 </p>
+
 
 <!--
 PRESENTER NOTES:
