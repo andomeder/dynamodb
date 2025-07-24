@@ -1,0 +1,15 @@
+/* A more subtle link color */
+.slidev-layout a {
+  color: #FF9900; /* AWS Orange */
+  border-bottom: 1px solid #FF990060;
+}
+
+.slidev-layout a:hover {
+  border-bottom-color: #FF9900;
+}
+
+/* Style for the presenter's name in the notes */
+.presenter-name {
+  font-weight: bold;
+  color: #FF9900;
+}
