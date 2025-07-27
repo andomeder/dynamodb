@@ -243,44 +243,94 @@ table.put_item(
         'email': 'johndoe@example.com'
     }
 )
-
-# 3. Read an item.
-response = table.get_item(
-    Key={'user_id': '12345'}
-)
-item = response.get('Item')
-
-# 4. Update an item.
-response = table.update_item(
-    Key={'user_id': '12345'},
-    UpdateExpression='SET #em = :new_email',
-    ExpressionAttributeNames={'#em': 'email'},
-    ExpressionAttributeValues={':new_email': 'john.doe@newdomain.com'},
-)
-
-# 5. Delete an item.
-table.delete_item(
-    Key={'user_id': '12345'}
-)
 ```
 
 <!--
 PRESENTER NOTES:
-(Presenter 4) -> Now let's get into how developers actually work with DynamoDB.
-From the backend, the standard method is to use an AWS Software Development Kit, or SDK. AWS provides them for all major languages like Python, Java, and Node.js.
-Here is a Python example using the Boto3 SDK.
-First, you initialize the DynamoDB resource and get a reference to your table.
-Then, you can perform standard CRUD—Create, Read, Update, and Delete—operations. Here, we are creating an item with `put_item`.
-We can retrieve it with `get_item`, providing the key.
-We can update specific attributes with `update_item`.
-And finally, we can remove the item with `delete_item`.
-The AWS Command Line Interface, or CLI, is also commonly used for scripting and administrative tasks.
+(Presenter 4) -> First, we have the code to create an item.
+(CLICK) We start by importing the Boto3 library and initializing our connection to the 'Users' table. This is the setup required for any operation.
+(CLICK) Next, we call the `put_item` method. You provide it with a dictionary representing the item you want to save. It's important to know that `put_item` will create the item if it doesn't exist, but it will replace the entire item if it already does.
 -->
 
 ---
 layout: default
 ---
 
+# Backend Access: Read Item (`get_item`)
+
+To retrieve a single item, we use `table.get_item()`, providing the unique primary key of the item we want. The item's data is found within the `Item` key of the response.
+
+```python
+# Read an item.
+response = table.get_item(
+    Key={
+        'user_id': '12345'
+    }
+)
+
+item = response.get('Item')
+
+# print(item)
+# {'user_id': '12345', 'username': 'johndoe', 'email': 'johndoe@example.com'}
+```
+
+<!--
+PRESENTER NOTES:
+(Presenter 4) -> To read data, we use `get_item`. This is a highly efficient operation. You simply pass the primary key of the item you need, and DynamoDB returns it. The actual data will be inside the 'Item' field of the response.
+-->
+
+---
+layout: default
+---
+
+# Backend Access: Update Item (`update_item`)
+
+The `table.update_item()` method is used to modify specific attributes of an existing item without replacing the whole item. This is more efficient than a `put_item` for partial updates.
+
+```python
+# Update an item.
+response = table.update_item(
+    Key={'user_id': '12345'},
+    UpdateExpression='SET #em = :new_email',
+    ExpressionAttributeNames={'#em': 'email'},
+    ExpressionAttributeValues={':new_email': 'john.doe@newdomain.com'},
+    ReturnValues='UPDATED_NEW'
+)
+
+# print(response['Attributes'])
+# {'email': 'john.doe@newdomain.com'}
+```
+<!--
+PRESENTER NOTES:
+(Presenter 4) -> For modifying existing data, `update_item` is the best choice. Unlike `put_item`, it only changes the attributes you specify. Here, we're using an `UpdateExpression` to set a new value for the email attribute. This is much more efficient for small changes.
+-->
+
+---
+layout: default
+---
+
+# Backend Access: Delete Item (`delete_item`)
+
+Finally, `table.delete_item()` is used to permanently remove an item from the table. Like `get_item`, it identifies the item to be deleted by its primary key.
+
+```python
+# Delete an item.
+table.delete_item(
+    Key={
+        'user_id': '12345'
+    }
+)
+```
+
+<!--
+PRESENTER NOTES:
+(Presenter 4) -> And to remove an item, we use the straightforward `delete_item` method, again specifying the item by its primary key. These four operations are the building blocks for any application interacting with DynamoDB.
+-->
+
+
+---
+layout: default
+---
 
 # Frontend Access: The Secure Architecture
 
@@ -288,24 +338,8 @@ Direct frontend access is insecure. The best practice is to use an API layer.
 
 <div class="w-full h-90 flex items-center justify-center">
 
-<!-- This Mermaid diagram now has a theme that adapts to light/dark mode -->
+<!-- Mermaid diagram styling is now fully handled by style.css -->
 ```mermaid
-%%{
-  init: {
-    "theme": "base",
-    "themeVariables": {
-      "primaryColor": "#F0F4F8",
-      "primaryTextColor": "#1C2A3A",
-      "primaryBorderColor": "#A6B5C5",
-      "lineColor": "#6C757D",
-      "textColor": "#212529",
-      "mainBkg": "#D6EAF8",
-      "nodeBorder": "#3498DB",
-      "clusterBkg": "#F8F9FA",
-      "clusterBorderColor": "#CED4DA"
-    }
-  }
-}%%
 graph TD
     A["<div class='flex items-center'><div class='i-carbon-laptop text-3xl mr-2'></div>User's Browser/Mobile App</div>"] -->|HTTPS Request| B(Amazon API Gateway);
     B -->|Triggers| C(AWS Lambda Function);
