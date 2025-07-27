@@ -432,6 +432,7 @@ graph TD
 </div>
 </div>
 
+
 <!--
 PRESENTER NOTES:
 (Presenter 5) -> So, how does DynamoDB achieve this scale and performance? It boils down to two things: distribution and optimization.
