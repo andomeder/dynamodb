@@ -4,17 +4,27 @@ theme: seriph
 title: 'Amazon DynamoDB: A Comprehensive Analysis'
 author: 'Group 3'
 
+# Add fonts from Google Fonts for a modern look
+fonts:
+  sans: Nunito Sans
+  serif: Roboto Slab
+  mono: Fira Code
+
 # Enable downloading the presentation as a PDF from the web interface
 download: true
 # Set the favicon to our Daystar logo
-favicon: '/daystar-logo.png'
+favicon: "/daystar-logo.png"
 
 # Enable syntax highlighting features
 lineNumbers: true
 ---
 
-<!-- 
-This is the Title Slide. 
+---
+layout: cover
+---
+
+<!--
+This is the Title Slide.
 The layout 'cover' is a special layout that's often used for titles.
 The background image is the Daystar logo we placed in the public folder.
 -->
@@ -22,14 +32,20 @@ The background image is the Daystar logo we placed in the public folder.
   <img src="/daystar-logo.png" alt="Daystar University Logo" class="w-40 mb-8" />
   <h1 class="text-5xl font-bold">Amazon DynamoDB: A Comprehensive Analysis</h1>
   <p class="mt-6 text-2xl">ACS362B: Advanced Database Management Systems</p>
-  <p class="mt-2 text-xl opacity-80">Mr. Watson Kanuku</p>
+  <p class="mt-2 text-xl description">Mr. Watson Kanuku</p>
 </div>
 
 
-<!-- 
+<!--
 PRESENTER NOTES:
 (William) -> Good morning/afternoon everyone. My name is William, and on behalf of Group 3, I'd like to welcome you to our presentation on Amazon DynamoDB. Over the next few minutes, we'll be exploring what makes this database a cornerstone of modern cloud applications.
-Our group members are: [List names].
+Our group members are: [
+Kimutai Edwin,
+Niyomwungere Bonfils,
+Mwambali Irenge Don-Beni,
+Brave Joseph Irumva,
+Kengere William N. Obino
+].
 -->
 
 ---
@@ -43,42 +59,42 @@ layout: default
     <div class="i-carbon-rocket text-5xl text-[#005276] mr-4"></div>
     <div>
       <h3 class="text-xl font-bold">Introduction</h3>
-      <p class="opacity-70">What is DynamoDB?</p>
+      <p class="description">What is DynamoDB?</p>
     </div>
   </div>
   <div class="flex items-center" v-click>
     <div class="i-carbon-star-review text-5xl text-[#005276] mr-4"></div>
     <div>
       <h3 class="text-xl font-bold">Outstanding Characteristics</h3>
-      <p class="opacity-70">The Core Features</p>
+      <p class="description">The Core Features</p>
     </div>
   </div>
   <div class="flex items-center" v-click>
     <div class="i-carbon-building-insights-1 text-5xl text-[#005276] mr-4"></div>
     <div>
       <h3 class="text-xl font-bold">Areas of Application</h3>
-      <p class="opacity-70">Powering Industry Leaders</p>
+      <p class="description">Powering Industry Leaders</p>
     </div>
   </div>
   <div class="flex items-center" v-click>
     <div class="i-carbon-terminal text-5xl text-[#005276] mr-4"></div>
     <div>
       <h3 class="text-xl font-bold">Access Mechanisms</h3>
-      <p class="opacity-70">Backend & Frontend</p>
+      <p class="description">Backend & Frontend</p>
     </div>
   </div>
   <div class="flex items-center" v-click>
     <div class="i-carbon-network-4 text-5xl text-[#005276] mr-4"></div>
     <div>
       <h3 class="text-xl font-bold">Distribution & Optimization</h3>
-      <p class="opacity-70">The Engine Under the Hood</p>
+      <p class="description">The Engine Under the Hood</p>
     </div>
   </div>
   <div class="flex items-center" v-click>
     <div class="i-carbon-security text-5xl text-[#005276] mr-4"></div>
     <div>
       <h3 class="text-xl font-bold">Security & Integration</h3>
-      <p class="opacity-70">A Robust Ecosystem</p>
+      <p class="description">A Robust Ecosystem</p>
     </div>
   </div>
 </div>
@@ -102,17 +118,17 @@ A fully managed, serverless, NoSQL database designed for **internet-scale applic
   <div v-click>
     <div class="i-carbon-flash text-5xl text-yellow-500 mx-auto"></div>
     <h3 class="font-bold mt-2">Performance at Scale</h3>
-    <p class="text-sm opacity-75">Single-digit millisecond latency, regardless of size.</p>
+    <p class="text-sm description">Single-digit millisecond latency, regardless of size.</p>
   </div>
   <div v-click>
     <div class="i-carbon-cloud-services text-5xl text-blue-500 mx-auto"></div>
     <h3 class="font-bold mt-2">Fully Managed</h3>
-    <p class="text-sm opacity-75">No servers to provision, patch, or manage. It's serverless.</p>
+    <p class="text-sm description">No servers to provision, patch, or manage. It's serverless.</p>
   </div>
   <div v-click>
     <div class="i-carbon-document-multiple-01 text-5xl text-green-500 mx-auto"></div>
     <h3 class="font-bold mt-2">Flexible Schema</h3>
-    <p class="text-sm opacity-75">Supports both Key-Value and Document data models.</p>
+    <p class="text-sm description">Supports both Key-Value and Document data models.</p>
   </div>
 </div>
 
@@ -298,14 +314,9 @@ graph TD
         B; C; D;
     end
     E["<div class='flex items-center'><div class='i-carbon-user-avatar-filled-alt text-3xl mr-2'></div>Amazon Cognito</div>"] -->|Authenticates & Authorizes| B;
-
-    style A fill:#D6EAF8,stroke:#3498DB,color:#212529
-    style E fill:#FEF9E7,stroke:#F1C40F,color:#212529
-    style D fill:#D5F5E3,stroke:#2ECC71,color:#212529
 ```
 
 </div>
-
 
 <!--
 PRESENTER NOTES:
@@ -322,23 +333,19 @@ To handle user authentication, you would use a service like Amazon Cognito, whic
 layout: default
 ---
 
-
 # Distribution & Optimization
-
-<!-- DynamoDB's performance comes from its distributed architecture and data modeling best practices. -->
 
 <div class="grid grid-cols-2 gap-8 mt-6">
 <div>
 
 ### Distribution
-<!-- This diagram is now themed for light mode -->
+<!-- Mermaid diagram with styling handled by style.css -->
 ```mermaid
-%%{ init: { "theme": "base", "themeVariables": { "primaryTextColor": "#111" } } }%%
 graph TD
     subgraph Data Items
-        A["Item 1<br><span class='opacity-50'>PK: user_A</span>"]
-        B["Item 2<br><span class='opacity-50'>PK: user_B</span>"]
-        C["Item 3<br><span class='opacity-50'>PK: user_C</span>"]
+        A["Item 1<br><span class='description'>PK: user_A</span>"]
+        B["Item 2<br><span class='description'>PK: user_B</span>"]
+        C["Item 3<br><span class='description'>PK: user_C</span>"]
     end
     
     Hash["Hash(Partition Key)"]
@@ -401,24 +408,22 @@ DynamoDB is secure by default and deeply integrated into the AWS ecosystem.
 <div>
 
 ### Seamless Integration
-<!-- Themed diagram -->
+<!-- This diagram is now fixed. The faulty classDef is removed. -->
 ```mermaid
-%%{ init: { "theme": "base", "themeVariables": { "primaryTextColor": "#111" } } }%%
 graph TD
     D["<div class='p-1'>DynamoDB</div>"]
-    R("Amazon Redshift<br><span class='opacity-60 text-sm'>Analytics</span>")
-    S("Amazon OpenSearch<br><span class='opacity-60 text-sm'>Full-Text Search</span>")
-    L("AWS Lambda<br><span class='opacity-60 text-sm'>Event-Driven Logic</span>")
-    M("Other DBs<br><span class='opacity-60 text-sm'>e.g., MongoDB</span>")
+    R("Amazon Redshift<br><span class='description'>Analytics</span>")
+    S("Amazon OpenSearch<br><span class='description'>Full-Text Search</span>")
+    L("AWS Lambda<br><span class='description'>Event-Driven Logic</span>")
+    M("Other DBs<br><span class='description'>e.g., MongoDB</span>")
 
     D ---|Zero-ETL| R; D ---|Zero-ETL| S;
     D -- "Streams" --> L; M -- "AWS DMS" --> D;
     
-    style D fill:#FF9900,color:#fff,stroke:#BF7300
+    class D dynamodb-node;
 ```
 </div>
 </div>
-
 
 <!--
 PRESENTER NOTES:
@@ -438,15 +443,15 @@ class: 'text-center'
 <div class="grid grid-cols-1 gap-6 mt-8">
   <div v-click>
     <h3 class="font-bold text-2xl">1. Scalable & Serverless by Default</h3>
-    <p class="text-lg opacity-75">A premier choice for applications requiring massive scale with minimal operational overhead.</p>
+    <p class="text-lg description">A premier choice for applications requiring massive scale with minimal operational overhead.</p>
   </div>
   <div v-click>
     <h3 class="font-bold text-2xl">2. Data Modeling is Everything</h3>
-    <p class="text-lg opacity-75">Performance and cost are directly tied to how you design your primary keys and access patterns. Think about queries first.</p>
+    <p class="text-lg description">Performance and cost are directly tied to how you design your primary keys and access patterns. Think about queries first.</p>
   </div>
   <div v-click>
     <h3 class="font-bold text-2xl">3. A Pillar of the AWS Ecosystem</h3>
-    <p class="text-lg opacity-75">Its true strength is amplified by its deep integration for security, analytics, and event-driven architectures.</p>
+    <p class="text-lg description">Its true strength is amplified by its deep integration for security, analytics, and event-driven architectures.</p>
   </div>
 </div>
 
@@ -470,7 +475,7 @@ class: 'text-center'
 
 <br/>
 
-<p class="opacity-75">
+<p class="description">
 Kimutai Edwin,
 Niyomwungere Bonfils,
 Mwambali Irenge Don-Beni,

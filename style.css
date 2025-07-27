@@ -1,32 +1,46 @@
-/* ./style.css */
-
 /* --- Light Theme (Default) --- */
 :root {
-  --slidev-background-color: #F8F9FA; /* Off-white background */
-  --slidev-text-color: #212529; /* Very dark grey text */
-  --slidev-title-color: #005276; /* A strong, dark blue for titles */
-  --slidev-accent-color: #FF9900; /* AWS Orange for accents */
-  --slidev-code-background: #E9ECEF; /* Light grey for code blocks */
-  --slidev-code-text-color: #343A40;
+  /* Main Colors */
+  --slidev-background-color: #f5f2e9; /* Modern beige */
+  --slidev-text-color: #111827;       /* Near-black for main text */
+  --slidev-title-color: #005276;      /* Daystar blue */
+  --slidev-accent-color: #FF9900;     /* AWS Orange */
+  
+  /* Description Text Color - Very high contrast charcoal */
+  --slidev-text-color-description: #1f2937;
+
+  /* Code Block Colors */
+  --slidev-code-background: #e9ecef;
+  --slidev-code-text-color: #1f2937;
 }
+
 
 /* --- Dark Theme --- */
 .dark {
-  --slidev-background-color: #212529; /* Dark background */
-  --slidev-text-color: #E9ECEF; /* Light grey text */
-  --slidev-title-color: #74C0FC; /* A lighter, vibrant blue for titles */
-  --slidev-accent-color: #FF9900; /* AWS Orange still works well */
-  --slidev-code-background: #343A40; /* Darker grey for code blocks */
-  --slidev-code-text-color: #F8F9FA;
+  /* Main Colors */
+  --slidev-background-color: #111827; /* Darker background */
+  --slidev-text-color: #f9fafb;     /* Near-white text */
+  --slidev-title-color: #7dd3fc;   /* Light blue title */
+  --slidev-accent-color: #FF9900;
+  
+  /* Description Text Color - Very high contrast light grey */
+  --slidev-text-color-description: #f9fafb;
+  
+  /* Code Block Colors */
+  --slidev-code-background: #1f2937;
+  --slidev-code-text-color: #f9fafb;
 }
+
 
 /* --- Global Styles --- */
 .slidev-layout {
   color: var(--slidev-text-color);
+  font-family: 'Nunito Sans', sans-serif;
 }
 .slidev-layout h1, .slidev-layout h2, .slidev-layout h3 {
   color: var(--slidev-title-color);
   font-weight: 600;
+  font-family: 'Roboto Slab', serif;
 }
 .slidev-layout a {
   color: var(--slidev-accent-color);
@@ -37,13 +51,92 @@
   border-bottom-color: var(--slidev-accent-color);
 }
 
+/* --- Title Slide ("cover") Specific Styles --- */
+/* This ensures the title slide has a clean background in both modes */
+.slidev-layout.cover {
+  background-color: #f8f9fa; /* A clean, high-contrast off-white for light mode */
+}
+.dark .slidev-layout.cover {
+  background-color: var(--slidev-background-color);
+}
+
+
+/* --- Universal Subtitle/Description Fix --- */
+
+/* 1. Style the dedicated .description class */
+.slidev-layout .description {
+  color: var(--slidev-text-color-description) !important;
+  opacity: 1 !important;
+}
+
+/* 2. Style any paragraph that comes directly after a heading */
+.slidev-layout h1 + p,
+.slidev-layout h2 + p,
+.slidev-layout h3 + p,
+.slidev-layout h4 + p {
+  color: var(--slidev-text-color-description) !important;
+  opacity: 1 !important;
+}
+
+
 /* --- Code Block Styles --- */
 .slidev-code-wrapper {
   background-color: var(--slidev-code-background);
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  border: 1px solid rgba(128,128,128,0.2);
 }
 code {
   color: var(--slidev-code-text-color);
+  font-family: 'Fira Code', monospace;
+}
+
+/* --- Mermaid Diagram Styles --- */
+.mermaid {
+  background-color: transparent !important;
+  color: var(--slidev-text-color);
+}
+.mermaid svg {
+  background-color: transparent !important;
+}
+/* Node styling */
+.mermaid .node rect, .mermaid .node circle, .mermaid .node polygon, .mermaid .node path {
+  fill: var(--slidev-code-background);
+  stroke: var(--slidev-title-color);
+  stroke-width: 2px;
+}
+/* Text styling */
+.mermaid .node-label, .mermaid .edge-label-box, .mermaid text {
+  fill: var(--slidev-text-color) !important;
+  color: var(--slidev-text-color) !important;
+  font-weight: 600;
+}
+.mermaid .description {
+  color: var(--slidev-text-color-description) !important;
+}
+/* Line/Edge styling */
+.mermaid .edge-path {
+  stroke: var(--slidev-title-color);
+}
+.mermaid .arrowhead {
+  fill: var(--slidev-title-color);
+}
+/* Subgraph styling */
+.mermaid .cluster rect {
+  fill: rgba(128,128,128,0.1);
+  stroke: var(--slidev-title-color);
+  stroke-width: 1px;
+  stroke-dasharray: 4;
+}
+.mermaid .cluster-label text {
+  fill: var(--slidev-text-color-description);
+}
+/* Special node styling for the orange DynamoDB node */
+.mermaid .dynamodb-node rect {
+    fill: var(--slidev-accent-color) !important;
+    stroke: #BF7300 !important;
+}
+.mermaid .dynamodb-node text {
+    fill: #fff !important;
 }
