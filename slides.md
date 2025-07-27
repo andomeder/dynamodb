@@ -192,7 +192,7 @@ DynamoDB is trusted by thousands of companies for their most demanding applicati
     <h3 class="font-bold">Media & Entertainment</h3>
     <div class="flex justify-center items-center space-x-4 mt-2 text-5xl">
       <div class="i-simple-icons-netflix text-red-600"></div>
-      <div class="i-simple-icons-disneyplus text-blue-900"></div>
+      <div class="i-simple-icons-warnerbros text-blue-900"></div>
     </div>
   </div>
   <div v-click>
@@ -205,7 +205,7 @@ DynamoDB is trusted by thousands of companies for their most demanding applicati
   <div v-click>
     <h3 class="font-bold">FinTech & Education</h3>
     <div class="flex justify-center items-center space-x-4 mt-2 text-5xl">
-      <div class="i-simple-icons-capitalone text-red-700"></div>
+      <div class="i-simple-icons-venmo text-red-700"></div>
       <div class="i-simple-icons-duolingo text-green-500"></div>
     </div>
   </div>
@@ -214,28 +214,51 @@ DynamoDB is trusted by thousands of companies for their most demanding applicati
 <!--
 PRESENTER NOTES:
 (Presenter 3) -> So, who actually uses this? The answer is: some of the biggest names in tech.
-In Media, Disney+ and Netflix use it to handle billions of user interactions daily, from updating watchlists to storing user profiles.
+In Media, Disney+, Warner Bros, and Netflix use it to handle billions of user interactions daily, from updating watchlists to storing user profiles.
 In E-commerce, Amazon's own retail site migrated many of its critical services to DynamoDB to handle its massive scale. SaaS companies like Dropbox use it for metadata storage.
-And in FinTech and Education, companies like Capital One and Duolingo rely on it for its speed and reliability to power their mobile applications. This shows its versatility across many different industries.
+And in FinTech and Education, companies like Capital One, Duolingo and venmo rely on it for its speed and reliability to power their mobile applications. This shows its versatility across many different industries.
 -->
 
 ---
 layout: default
 ---
 
-# Backend Access: SDKs & CLI
+# Backend Access: SDKs
 
 Interact with DynamoDB from a secure backend using AWS SDKs.
+<br>
+The most common way to work with DynamoDB is through the AWS SDKs, available for most major languages. We will demonstrate the main operations using **Python (Boto3)**.
+<br>
+The following slides will walk through the four main **CRUD** operations:
+- **C**reate
+- **R**ead
+- **U**pdate
+- **D**elete
 
-<!-- By adding maxHeight, the code block becomes scrollable if it exceeds the height -->
-```python {all|3-4|7-14|17-21|24-29|32-35} {maxHeight: '380px'}
+<!--
+PRESENTER NOTES:
+(Presenter 4) -> Now let's get into how developers actually work with DynamoDB.
+From the backend, the standard method is to use an AWS Software Development Kit, or SDK. AWS provides them for all major languages like Python, Java, and Node.js.
+Over the next few slides, we'll walk through the four fundamental CRUD operations using the Python SDK, Boto3. We'll start with creating an item.
+-->
+
+---
+layout: default
+---
+
+# Backend Access: Create Item (`put_item`)
+
+First, we initialize the DynamoDB resource and get a reference to our table. Then, we use `table.put_item()` to create a new item or completely overwrite an existing one.
+
+<!-- This code block now highlights each logical section on click -->
+```python {all|1-6|8-15}
 import boto3
 
-# 1. Initialize the DynamoDB resource.
+# Initialize the DynamoDB resource.
 dynamodb = boto3.resource('dynamodb')
 table = dynamodb.Table('Users')
 
-# 2. Create (or overwrite) an item.
+# Create (or overwrite) an item.
 table.put_item(
    Item={
         'user_id': '12345',
