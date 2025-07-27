@@ -170,7 +170,6 @@ layout: default
 </div>
 </div>
 
-
 <!--
 PRESENTER NOTES:
 (Presenter 3) -> Building on that, let's look closer at its characteristics.
